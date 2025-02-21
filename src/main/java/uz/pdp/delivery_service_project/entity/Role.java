@@ -2,21 +2,18 @@ package uz.pdp.delivery_service_project.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class AttachmentContent {
+@Table(name = "roles")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private byte[] content;
-    @ManyToOne
-    private Attachment attachment;
-
+    @Enumerated(EnumType.STRING)
+    private RoleName roleName;
 }

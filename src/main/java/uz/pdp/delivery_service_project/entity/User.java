@@ -1,22 +1,34 @@
 package uz.pdp.delivery_service_project.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class AttachmentContent {
+@Table(name = "users")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private byte[] content;
-    @ManyToOne
+    private String firstName;
+    private String lastName;
+    private String phone;
+    private String password;
+    @OneToOne
     private Attachment attachment;
+    @ManyToMany
+    private List<Role> roles;
+
+
+
+
+
+
+
 
 }
